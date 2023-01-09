@@ -90,7 +90,7 @@ body {
 .header .logo,
 .footer .logo {
   font-family: var(--font-family-logo);
-  font-weight: 800;
+  font-weight: var(--font-weight-raleway-800);
   font-size: 18px;
   line-height: 1.33;
   display: flex;
@@ -110,10 +110,10 @@ body {
 
 .navigation .list {
   display: flex;
-  gap: 40px;  
+  gap: 40px;
 }
 
-.navigation .item {  
+.navigation .item {
   position: relative;
   padding-top: 24px;
   padding-bottom: 24px;
@@ -124,7 +124,9 @@ body {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  color: var(--color-title);  
+  color: var(--color-title);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts {
@@ -140,6 +142,8 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--color-text);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navigation .link:hover,
@@ -147,10 +151,7 @@ body {
 .contacts .tel:hover,
 .navigation .link:focus,
 .contacts .email:focus,
-.contacts .tel:focus,
-.navigation .link:active,
-.contacts .email:active,
-.contacts .tel:active {
+.contacts .tel:focus {
   color: var(--color-btn-defult);
 }
 
@@ -158,19 +159,20 @@ body {
   color: var(--color-btn-defult);
 }
 .link.current::after {
-  content: "";  
+  content: "";
   position: absolute;
   left: 0;
-  bottom: 0;  
+  bottom: 0;
   width: 100%;
   height: 4px;
   background-color: var(--color-btn-defult);
-  border-radius: 2px;  
+  border-radius: 2px;
 }
 
 /*------------MAIN PAGE------------------*/
 /*------------HERO------------------*/
 .hero {
+  display: block;
   background-color: var(--color-title);
   background-image: var(--bg-gradient), url(../images/bg-hero.jpg);
   max-width: 1440px;
@@ -180,22 +182,15 @@ body {
   background-size: cover;
   padding-top: 188px;
   padding-bottom: 188px;
-  display: block;
 }
 .hero .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
 .hero .title {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  justify-items: center;
-  justify-self: center;
   font-weight: var(--font-weight-roboto-700);
   font-size: 56px;
   line-height: 1.07;
@@ -220,6 +215,8 @@ body {
   cursor: pointer;
   height: 56px;
   padding: 16px 32px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero .btn:hover,
@@ -279,7 +276,6 @@ body {
 }
 .preference .list {
   display: flex;
-  /* gap: 24px; */
 }
 .preference .item {
   margin-left: 24px;
@@ -349,13 +345,16 @@ body {
 }
 
 .soc-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   height: 100%;
   background-color: var(--color-style-logo);
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .soc-link:hover,
@@ -381,19 +380,25 @@ body {
   height: 88px;
 }
 .customers .link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   height: 100%;
   border: 1px solid #8e8f99;
   border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
   padding: 16px 32px;
   /* fill: var(--color-light-slate); */
   color: var(--color-light-slate);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .customers .icon {
   fill: currentColor;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers .link:hover,
@@ -433,6 +438,8 @@ body {
 }
 .footer .soc-link {
   background-color: rgba(255, 255, 255, 0.1);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer .soc-link:hover,
@@ -451,6 +458,10 @@ body {
   margin-bottom: 72px;
 }
 .portfolio .btn {
+  display: flex;
+  align-items: center;
+  text-align: center;
+
   font-family: inherit;
   background-color: var(--color-light);
   border: 1px solid var(--color-accent);
@@ -458,14 +469,17 @@ body {
   font-weight: var(--font-weight-roboto-500);
   font-size: 16px;
   line-height: 1.5;
-  display: flex;
-  align-items: center;
-  text-align: center;
+
   letter-spacing: 0.04em;
   color: var(--color-btn-defult);
   cursor: pointer;
   height: 48px;
   padding: 12px 24px;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .list-btn .item {
   margin-left: 24px;
@@ -490,15 +504,55 @@ body {
   flex-wrap: wrap;
 }
 .list-card .item {
+  display: block;
   background: var(--color-white);
   border-bottom: 1px solid #e7e9fc;
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
+
+  transition: border-bottom 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .list-card .item:hover,
 .list-card .item:focus {
   border-bottom: 0.5px solid #f4f4fd;
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.gallery .product {
+  overflow: hidden;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  width: 360px;
+  height: 300px;
+  padding-top: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
+
+  background-color: var(--color-btn-defult);
+  background-blend-mode: soft-light;
+  mix-blend-mode: normal;
+}
+
+.list-card .item:hover .overlay,
+.list-card .item:focus .overlay {
+  transform: translateY(0%);
+}
+
+.overlay .text {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--color-light);
 }
 
 .portfolio .title {
@@ -525,29 +579,37 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-
+  opacity: 1;
   background: rgba(46, 47, 66, 0.4);
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.is-hidden {
+.backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
+}
+
+.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.2);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
 
   width: 408px;
   height: 576px;
 
-  background: #fcfcfc;
+  background:#fcfcfc;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal .btn {
